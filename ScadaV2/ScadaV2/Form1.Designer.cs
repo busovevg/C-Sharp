@@ -366,7 +366,7 @@
             this.ser_IPaddressTB.Name = "ser_IPaddressTB";
             this.ser_IPaddressTB.Size = new System.Drawing.Size(100, 20);
             this.ser_IPaddressTB.TabIndex = 23;
-            this.ser_IPaddressTB.Text = "192.168.31.226";
+            this.ser_IPaddressTB.Text = "192.168.31.227";
             // 
             // ser_StartBT
             // 
@@ -401,11 +401,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 450);
             this.Controls.Add(this.Chart_Bt);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.Settings_Bt);
             this.Controls.Add(this.Main_Bt);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.Name = "Form1";
             this.Text = "EvgScada";
             this.Load += new System.EventHandler(this.Form1_Load);

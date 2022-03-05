@@ -60,19 +60,96 @@ namespace ScadaV2
                 
                 dataLenght = e.MessageString.Length;
                 DataReceivLenght.Text = dataLenght.ToString();
-
-
                 if (dataLenght == 42)
                 {
-                    dataint1_TB.Text = data.Substring(0, 3);
-                    dataint2_TB.Text = data.Substring(3, 3);
-                    dataint3_TB.Text = data.Substring(6, 3);
-                    dataint4_TB.Text = data.Substring(9, 3);
-                    dataText1_TB.Text = data.Substring(12, 10);
-                    dataText2_TB.Text = data.Substring(22, 10);
-                    dataText3_TB.Text = data.Substring(32, 10);
-                    textBox1.Text = dataint1_TB.Text;
+                    DataReceivLenght.BackColor = Color.LightGreen;
                 }
+                else
+                {
+                    DataReceivLenght.BackColor = Color.LightPink;
+                }
+            
+
+                if (dataLenght >= 3)
+                {
+                    dataint1_TB.Text = data.Substring(0, 3);
+                    textBox1.Text = dataint1_TB.Text;
+                    if (dataLenght >= 6)
+                    {
+                        dataint2_TB.Text = data.Substring(3, 3);
+                        if (dataLenght >= 9)
+                        {
+                            dataint3_TB.Text = data.Substring(6, 3);
+                            if (dataLenght >= 12)
+                            {
+                                dataint4_TB.Text = data.Substring(9, 3);
+                                if (dataLenght >= 22)
+                                {
+                                    dataText1_TB.Text = data.Substring(12, 10);
+                                    if (dataLenght >= 32)
+                                    {
+                                        dataText2_TB.Text = data.Substring(22, 10);
+                                        if (dataLenght >= 42)
+                                        {
+                                            dataText3_TB.Text = data.Substring(32, 10);
+                                            
+                                        }
+                                        else
+                                        {
+                                            dataText3_TB.Text = "";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        dataText2_TB.Text = "";
+                                        dataText3_TB.Text = "";
+                                    }
+                                }
+                                else
+                                {
+                                    dataText1_TB.Text = "";
+                                    dataText2_TB.Text = "";
+                                    dataText3_TB.Text = "";
+                                }
+                            }
+                            else
+                            {
+                                dataint4_TB.Text = "";
+                                dataText1_TB.Text = "";
+                                dataText2_TB.Text = "";
+                                dataText3_TB.Text = "";
+                            }
+                        }
+                        else
+                        {
+                            dataint3_TB.Text = "";
+                            dataint4_TB.Text = "";
+                            dataText1_TB.Text = "";
+                            dataText2_TB.Text = "";
+                            dataText3_TB.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        dataint2_TB.Text = "";
+                        dataint3_TB.Text = "";
+                        dataint4_TB.Text = "";
+                        dataText1_TB.Text = "";
+                        dataText2_TB.Text = "";
+                        dataText3_TB.Text = "";
+                    }
+                }
+                else
+                {
+                    dataint1_TB.Text = "";
+                    dataint2_TB.Text = "";
+                    dataint3_TB.Text = "";
+                    dataint4_TB.Text = "";
+                    dataText1_TB.Text = "";
+                    dataText2_TB.Text = "";
+                    dataText3_TB.Text = "";
+                }
+
 
                 e.ReplyLine(string.Format("You said: {0}", e.MessageString));
                
