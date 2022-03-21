@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisV3", "VisV3.csproj", "{FFBBB5EF-EFFE-4977-8F68-49F22929323B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		86|Any CPU = 86|Any CPU
+		86|x86 = 86|x86
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.86|Any CPU.ActiveCfg = 86|Any CPU
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.86|Any CPU.Build.0 = 86|Any CPU
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.86|x86.ActiveCfg = 86|x86
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.86|x86.Build.0 = 86|x86
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.Debug|x86.ActiveCfg = Debug|x86
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.Debug|x86.Build.0 = Debug|x86
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.Release|x86.ActiveCfg = Release|x86
+		{FFBBB5EF-EFFE-4977-8F68-49F22929323B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6235B6DA-3E88-43CD-ACCB-8C4623CDAFFF}
+	EndGlobalSection
+EndGlobal
