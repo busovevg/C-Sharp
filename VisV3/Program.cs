@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace VisV3
 {
@@ -15,6 +17,7 @@ namespace VisV3
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            Thread.Sleep(200);
         }
     }
 }

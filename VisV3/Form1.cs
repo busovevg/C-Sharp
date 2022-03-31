@@ -11,6 +11,7 @@ using SimpleTCP;
 using System.IO;
 using System.Configuration;
 
+
 namespace VisV3
 {
     public partial class Form1 : Form
@@ -20,17 +21,19 @@ namespace VisV3
         int[] PosAct = new int[60];
         int k;
         bool TimerOn = false;
-        string text1 = "011812312312312312312312";
-        string text2 = "021823123123123123123123";
-        string text3 = "031812312312312312312312";
-        string text4 = "041823123123123123123123";
-        string text5 = "051823123123123123123123";
+        string text1 = "0118123123123123123123123123123";
+        string text2 = "0218231231231231231231231231231";
+        string text3 = "0318123123123123123123123123123";
+        string text4 = "0418231231231231231231231231231";
+        string text5 = "0518231231231231231231231231231";
+        int iTb = 0;
 
         public Form1()
         {
             InitializeComponent();
             ser_IPaddressTB.Text = ConfigurationManager.AppSettings["IpAdress"];
             ser_portTB.Text = ConfigurationManager.AppSettings["Port"];
+                            
         }
         SimpleTcpServer server;
         public void Form1_Load(object sender, EventArgs e)
@@ -46,103 +49,10 @@ namespace VisV3
                 btn[i].BringToFront();
                 btn[i].Text = "" + (i + 1).ToString();
                 this.Controls.Add(btn[i]);
-
-            }
-
-            pictureBox1.SendToBack();
-
-            for (int i = 0; i < btn.Length; i++)
-            {
                 MoveCtrl.EnableMove(btn[i]);
                 btn[i].Location = new Point(PosAct[i * 2], PosAct[i * 2 + 1]);
             }
-            server = new SimpleTcpServer();
-            server.Delimiter = 0x13;
-            server.StringEncoder = Encoding.UTF8;
-            server.DataReceived += Server_DataReceived;
-        }
-        private void Server_DataReceived(object sender, SimpleTCP.Message e)
-        {
-            ser_DataLogTB.Invoke((MethodInvoker)delegate ()
-            {
-                ser_DataLogTB.Text += e.MessageString + "/>";
-                data = e.MessageString;
-
-                dataLenght = e.MessageString.Length;
-                
-                ReceivData();
-
-                e.ReplyLine(string.Format("You said: {0}", e.MessageString));
-
-            });
-            IndStat();
-        }
-
-        private void ReceivData()
-        {
-            DataReceivLenght.Text = dataLenght.ToString();
-            if (dataLenght >= 4)
-            {
-                if (dataLenght == Convert.ToInt32(data.Substring(2, 2)) + 4)
-                {
-                    DataReceivLenght.BackColor = Color.LightGreen;
-                }
-                else
-                {
-                    DataReceivLenght.BackColor = Color.LightPink;
-                }
-            }
-            else
-            {
-                DataReceivLenght.BackColor = Color.LightPink;
-            }
-
-
-            for (int j = 0; j < k; j++)
-            {
-                if (this.panel2.Controls["TbInd" + (j + 1).ToString()].Created == true)
-                {
-                    this.panel2.Controls["TbInd" + (j + 1).ToString()].Text = "";
-                }
-            }
-
-
-            int iTb = 0;
-            if (dataLenght >= 5)
-            {
-                iTb = dataLenght - 4;
-                TB_Ntask.Text = data.Substring(0, 2);
-                TB_ReqInd.Text = data.Substring(2, 2);
-                TaskIndex.Value = Convert.ToInt32(TB_Ntask.Text);
-
-                if (File.Exists(Convert.ToInt32(TB_Ntask.Text).ToString() + ".jpg"))
-                {
-                    pictureBox1.Image = Image.FromFile(Convert.ToInt32(TB_Ntask.Text).ToString() + ".jpg");
-                   
-                }
-                else
-                {
-                    if (File.Exists("no.jpg"))
-                    {
-                        pictureBox1.Image = Image.FromFile("no.jpg");
-                    }
-
-                }
-
-
-            }
-
-
-            if (dataLenght - 4 > 30)
-            {
-                iTb = 30;
-            }
-            if (iTb > k)
-            {
-                k = iTb;
-            }
-            TextBox[] TbInd = new TextBox[iTb];
-
+            TextBox[] TbInd = new TextBox[30];
             for (int i = 0; i < TbInd.Length; i++)
             {
                 TbInd[i] = new TextBox();
@@ -162,15 +72,119 @@ namespace VisV3
 
 
                 panel2.Controls.Add(TbInd[i]);
-                this.panel2.Controls["TbInd" + (i + 1).ToString()].Text = data.Substring(i + 4, 1);
+               
 
 
             }
+            pictureBox1.SendToBack();
+
+            server = new SimpleTcpServer();
+            server.Delimiter = 0x13;
+            server.StringEncoder = Encoding.UTF8;
+            server.DataReceived += Server_DataReceived;
+            
+        }
+        private void Server_DataReceived(object sender, SimpleTCP.Message e)
+        {
+            ser_DataLogTB.Invoke((MethodInvoker)delegate ()
+            {
+              // ser_DataLogTB.Text += e.MessageString + "/>";
+                data = e.MessageString;
+
+                if (e.MessageString.Length > 34)
+                {
+                    dataLenght = 34;
+                }
+                else
+                {
+                    dataLenght = e.MessageString.Length;
+                }
+                ReceivData();
+
+                //e.ReplyLine(string.Format("You said: {0}", e.MessageString));
+
+            });
+            IndStat();
+            
+        }
+
+        private void ReceivData()
+        {
+            DataReceivLenght.Text = dataLenght.ToString();
+            if (dataLenght >= 4)
+            {
+                if (dataLenght == Convert.ToInt32(data.Substring(2, 2)) + 11)
+                {
+                    DataReceivLenght.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    DataReceivLenght.BackColor = Color.LightPink;
+                }
+            }
+            else
+            {
+                DataReceivLenght.BackColor = Color.LightPink;
+            }
+
+
+           for (int j = 0; j < dataLenght - 11; j++)
+            {
+               if (this.panel2.Controls["TbInd" + (j + 1).ToString()].Created == true)
+                {
+                    this.panel2.Controls["TbInd" + (j + 1).ToString()].Text = "";
+                }
+                this.panel2.Controls["TbInd" + (j + 1).ToString()].Text = data.Substring(j + 11, 1);
+            }
+
+
+            
+            if (dataLenght >= 5)
+            {
+                iTb = dataLenght - 4;
+                TB_Ntask.Text = data.Substring(0, 2);
+                TB_ReqInd.Text = data.Substring(2, 2);
+                TaskIndex.Value = Convert.ToInt32(TB_Ntask.Text);
+
+                if (File.Exists(Convert.ToInt32(TB_Ntask.Text).ToString() + ".jpg"))
+                {
+                    pictureBox1.Image = Image.FromFile(Convert.ToInt32(TB_Ntask.Text).ToString() + ".jpg");
+                    tb_QPS.Text = ConfigurationManager.AppSettings["Str" + (Convert.ToInt32(TB_Ntask.Text).ToString())];
+
+                }
+                else
+                {
+                    if (File.Exists("no.jpg"))
+                    {
+                        pictureBox1.Image = Image.FromFile("no.jpg");
+                    }
+
+                }
+
+
+            }
+
+            pb_CycleTime.Value = Convert.ToInt32(data.Substring(4, 2));
+            tb_CycleTime.Text = data.Substring(4, 3)+" : "+data.Substring(7, 2);
+
+
+            if (dataLenght - 4 > 30)
+            {
+                iTb = 30;
+            }
+            if (iTb > k)
+            {
+                k = iTb;
+            }
+            
+
+           
         }
         private void IndStat()
         {
-            for (int i = 0; i < dataLenght - 4; i++)
+            for (int i = 0; i < dataLenght - 11; i++)
             {
+               
                 if (this.panel2.Controls["TbInd" + (i + 1).ToString()].Text == "1")
                 {
                     this.Controls["" + (i + 1).ToString()].BackColor = Color.Yellow;
@@ -189,6 +203,7 @@ namespace VisV3
                 {
                     this.Controls["" + (i + 1).ToString()].BackColor = Color.Blue;
                 }
+                this.panel2.Controls["TbInd" + (i + 1).ToString()].Text = data.Substring(i + 11, 1);
             }
         }
 
@@ -203,6 +218,7 @@ namespace VisV3
             config.AppSettings.Settings["MeMPos" + TaskIndex.Value.ToString()].Value = string.Join(",", Array.ConvertAll(PosAct, x => x.ToString()));
             config.AppSettings.Settings["IpAdress"].Value = ser_IPaddressTB.Text;
             config.AppSettings.Settings["Port"].Value = ser_portTB.Text;
+            config.AppSettings.Settings["Str" + TaskIndex.Value.ToString()].Value = tb_QPS.Text;
             config.Save();
             ConfigurationManager.RefreshSection("appSettings");
 
@@ -225,12 +241,6 @@ namespace VisV3
 
         private void TaskIndex_ValueChanged(object sender, EventArgs e)
         {
-            PosAct = ConfigurationManager.AppSettings["MeMPos" + TaskIndex.Value.ToString()].Split(',').Select(n => Convert.ToInt32(n)).ToArray();
-            for (int i = 0; i < 30; i++)
-            {
-                this.Controls["" + (i + 1).ToString()].Location = new Point(PosAct[i * 2], PosAct[i * 2 + 1]);
-            }
-
             if (TaskIndex.Value < 10)
             {
                 TB_Ntask.Text = "0" + TaskIndex.Value.ToString();
@@ -239,19 +249,26 @@ namespace VisV3
             {
                 TB_Ntask.Text = TaskIndex.Value.ToString();
             }
-
-
-
-            if (System.IO.File.Exists(Convert.ToInt32(TB_Ntask.Text) + ".jpg"))
+            if (File.Exists(Convert.ToInt32(TB_Ntask.Text) + ".jpg"))
             {
                 pictureBox1.Image = Image.FromFile(Convert.ToInt32(TB_Ntask.Text) + ".jpg");
-                
             }
             else
             {
-                
                 pictureBox1.Image = Image.FromFile("no.jpg");
             }
+
+            PosAct = ConfigurationManager.AppSettings["MeMPos" + TaskIndex.Value.ToString()].Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+            for (int i = 0; i < 30; i++)
+            {
+                this.Controls["" + (i + 1).ToString()].Location = new Point(PosAct[i * 2], PosAct[i * 2 + 1]);
+            }
+
+            
+
+            tb_QPS.Text = ConfigurationManager.AppSettings["Str" + (Convert.ToInt32(TB_Ntask.Text).ToString())];
+
+            
 
 
 
@@ -341,8 +358,12 @@ namespace VisV3
            
             ReceivData();
             IndStat();
+            
         }
 
-       
+        private void tb_QPS_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

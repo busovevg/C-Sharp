@@ -52,6 +52,9 @@ namespace VisV3
             this.BtSetengs = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TaskIndex = new System.Windows.Forms.NumericUpDown();
+            this.tb_QPS = new System.Windows.Forms.TextBox();
+            this.pb_CycleTime = new System.Windows.Forms.ProgressBar();
+            this.tb_CycleTime = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TaskIndex)).BeginInit();
@@ -75,14 +78,14 @@ namespace VisV3
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(477, 3);
+            this.textBox1.Location = new System.Drawing.Point(168, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(240, 20);
             this.textBox1.TabIndex = 64;
             // 
             // butDem
             // 
-            this.butDem.Location = new System.Drawing.Point(396, 2);
+            this.butDem.Location = new System.Drawing.Point(87, 1);
             this.butDem.Name = "butDem";
             this.butDem.Size = new System.Drawing.Size(75, 23);
             this.butDem.TabIndex = 63;
@@ -112,7 +115,9 @@ namespace VisV3
             this.panel2.Controls.Add(this.Req);
             this.panel2.Controls.Add(this.TB_ReqInd);
             this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.butDem);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
@@ -123,7 +128,7 @@ namespace VisV3
             this.panel2.Controls.Add(this.ser_DataLogTB);
             this.panel2.Controls.Add(this.ser_IPaddressTB);
             this.panel2.Controls.Add(this.ser_StartBT);
-            this.panel2.Location = new System.Drawing.Point(239, 23);
+            this.panel2.Location = new System.Drawing.Point(238, 30);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(677, 462);
             this.panel2.TabIndex = 62;
@@ -250,7 +255,7 @@ namespace VisV3
             // 
             this.pictureBox1.Location = new System.Drawing.Point(1, 31);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1007, 699);
+            this.pictureBox1.Size = new System.Drawing.Size(910, 699);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
@@ -279,14 +284,47 @@ namespace VisV3
             0});
             this.TaskIndex.ValueChanged += new System.EventHandler(this.TaskIndex_ValueChanged);
             // 
+            // tb_QPS
+            // 
+            this.tb_QPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_QPS.Location = new System.Drawing.Point(914, 31);
+            this.tb_QPS.Multiline = true;
+            this.tb_QPS.Name = "tb_QPS";
+            this.tb_QPS.Size = new System.Drawing.Size(450, 700);
+            this.tb_QPS.TabIndex = 71;
+            this.tb_QPS.TextChanged += new System.EventHandler(this.tb_QPS_TextChanged);
+            // 
+            // pb_CycleTime
+            // 
+            this.pb_CycleTime.Location = new System.Drawing.Point(167, 2);
+            this.pb_CycleTime.Name = "pb_CycleTime";
+            this.pb_CycleTime.Size = new System.Drawing.Size(205, 23);
+            this.pb_CycleTime.Step = 1;
+            this.pb_CycleTime.TabIndex = 72;
+            // 
+            // tb_CycleTime
+            // 
+            this.tb_CycleTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.tb_CycleTime.BackColor = System.Drawing.SystemColors.Control;
+            this.tb_CycleTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_CycleTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_CycleTime.Location = new System.Drawing.Point(379, 5);
+            this.tb_CycleTime.Name = "tb_CycleTime";
+            this.tb_CycleTime.ReadOnly = true;
+            this.tb_CycleTime.Size = new System.Drawing.Size(62, 19);
+            this.tb_CycleTime.TabIndex = 73;
+            this.tb_CycleTime.Text = "00:00";
+            this.tb_CycleTime.WordWrap = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Controls.Add(this.tb_CycleTime);
+            this.Controls.Add(this.pb_CycleTime);
+            this.Controls.Add(this.tb_QPS);
             this.Controls.Add(this.TaskIndex);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.butDem);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.butSave);
             this.Controls.Add(this.BtSetengs);
@@ -327,6 +365,9 @@ namespace VisV3
         private System.Windows.Forms.Button BtSetengs;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.NumericUpDown TaskIndex;
+        private System.Windows.Forms.TextBox tb_QPS;
+        private System.Windows.Forms.ProgressBar pb_CycleTime;
+        private System.Windows.Forms.TextBox tb_CycleTime;
     }
 }
 
