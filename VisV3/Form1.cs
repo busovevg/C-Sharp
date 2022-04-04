@@ -23,9 +23,9 @@ namespace VisV3
         bool TimerOn = false;
         string text1 = "0118123123123123123123123123123";
         string text2 = "0218231231231231231231231231231";
-        string text3 = "0318123123123123123123123123123";
-        string text4 = "0418231231231231231231231231231";
-        string text5 = "0518231231231231231231231231231";
+        string text3 = "0318303123123123123123123123123";
+        string text4 = "0418331231231231231231231231231";
+        string text5 = "0518391231231231231231231231231";
         int iTb = 0;
 
         public Form1()
@@ -56,25 +56,23 @@ namespace VisV3
             for (int i = 0; i < TbInd.Length; i++)
             {
                 TbInd[i] = new TextBox();
-
+                TbInd[i].Anchor = (AnchorStyles.Top | AnchorStyles.Left);
                 if (i <= 14)
                 {
-                    TbInd[i].Location = new Point(431, 118 + i * 20);
+                    TbInd[i].Location = new Point(404, 120 + i * 20);
                 }
                 else
                 {
-                    TbInd[i].Location = new Point(544, 118 + (i - 15) * 20);
+                    TbInd[i].Location = new Point(500, 120 + (i - 15) * 20);
                 }
                 TbInd[i].Name = "TbInd" + (i + 1).ToString();
                 TbInd[i].Size = new Size(35, 35);
                 TbInd[i].TabIndex = i;
+                
                 TbInd[i].BringToFront();
 
-
-                panel2.Controls.Add(TbInd[i]);
+               panel2.Controls.Add(TbInd[i]);
                
-
-
             }
             pictureBox1.SendToBack();
 
@@ -109,6 +107,15 @@ namespace VisV3
         }
 
         private void ReceivData()
+
+        /*map               ttsscccccoobbbbbbbbbbbbbbbbbbb
+         *  t - №task:    02  
+         *  s - sum bolt:  07
+         *  c - Cycle time: mmmss
+         *  o - № operator 01
+         *  b - Status bolt: 1 - Yellow, 2 - Green, 3 - Red, any other - Blue 
+        */
+
         {
             DataReceivLenght.Text = dataLenght.ToString();
             if (dataLenght >= 4)
@@ -139,7 +146,7 @@ namespace VisV3
 
 
             
-            if (dataLenght >= 5)
+            if (dataLenght >= 12)
             {
                 iTb = dataLenght - 4;
                 TB_Ntask.Text = data.Substring(0, 2);
@@ -158,14 +165,30 @@ namespace VisV3
                     {
                         pictureBox1.Image = Image.FromFile("no.jpg");
                     }
-
                 }
-
-
             }
+            if(tb_TargetCTm.Text!="")
+            {
+                if (tb_TargetCTs.Text != "")
+                {
+                    if (Convert.ToInt32(tb_TargetCTm.Text) * 60 + Convert.ToInt32(tb_TargetCTs.Text) == 0)
+                    {
+                        pb_CycleTime.Value = 0;
+                    }
+                    else if (Convert.ToInt32(data.Substring(4, 3)) * 60 + Convert.ToInt32(data.Substring(7, 2)) > (Convert.ToInt32(tb_TargetCTm.Text) * 60 + Convert.ToInt32(tb_TargetCTs.Text)))
+                    {
+                        pb_CycleTime.Value = 100;
+                    }
 
-            pb_CycleTime.Value = Convert.ToInt32(data.Substring(4, 2));
+                    else
+                    {
+                        pb_CycleTime.Value = (Convert.ToInt32(data.Substring(4, 3)) * 60 + Convert.ToInt32(data.Substring(7, 2))) / ((Convert.ToInt32(tb_TargetCTm.Text) * 60 + Convert.ToInt32(tb_TargetCTs.Text)) / 100);
+                    }
+                }
+            }
+            
             tb_CycleTime.Text = data.Substring(4, 3)+" : "+data.Substring(7, 2);
+            tb_Operator.Text = data.Substring(10, 2);
 
 
             if (dataLenght - 4 > 30)
@@ -299,7 +322,7 @@ namespace VisV3
             else
             {
                 textBox1.Text = text1;
-                dataLenght = 24;
+                dataLenght = 31;
                 data = text5;
                 timer1.Start();
                 TimerOn = true;
@@ -365,5 +388,7 @@ namespace VisV3
         {
 
         }
+
+       
     }
 }

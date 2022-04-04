@@ -55,39 +55,52 @@ namespace VisV3
             this.tb_QPS = new System.Windows.Forms.TextBox();
             this.pb_CycleTime = new System.Windows.Forms.ProgressBar();
             this.tb_CycleTime = new System.Windows.Forms.TextBox();
+            this.pb_operator = new System.Windows.Forms.PictureBox();
+            this.tb_Operator = new System.Windows.Forms.TextBox();
+            this.tb_TargetCTm = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_TargetCTs = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TaskIndex)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_operator)).BeginInit();
             this.SuspendLayout();
             // 
             // Req
             // 
             this.Req.AutoSize = true;
-            this.Req.Location = new System.Drawing.Point(546, 86);
+            this.Req.Location = new System.Drawing.Point(728, 106);
+            this.Req.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Req.Name = "Req";
-            this.Req.Size = new System.Drawing.Size(27, 13);
+            this.Req.Size = new System.Drawing.Size(34, 17);
             this.Req.TabIndex = 75;
             this.Req.Text = "Req";
             // 
             // TB_ReqInd
             // 
-            this.TB_ReqInd.Location = new System.Drawing.Point(576, 83);
+            this.TB_ReqInd.Location = new System.Drawing.Point(768, 102);
+            this.TB_ReqInd.Margin = new System.Windows.Forms.Padding(4);
             this.TB_ReqInd.Name = "TB_ReqInd";
-            this.TB_ReqInd.Size = new System.Drawing.Size(38, 20);
+            this.TB_ReqInd.ReadOnly = true;
+            this.TB_ReqInd.Size = new System.Drawing.Size(49, 22);
             this.TB_ReqInd.TabIndex = 74;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(168, 3);
+            this.textBox1.Location = new System.Drawing.Point(224, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 20);
+            this.textBox1.Size = new System.Drawing.Size(319, 22);
             this.textBox1.TabIndex = 64;
             // 
             // butDem
             // 
-            this.butDem.Location = new System.Drawing.Point(87, 1);
+            this.butDem.Location = new System.Drawing.Point(116, 1);
+            this.butDem.Margin = new System.Windows.Forms.Padding(4);
             this.butDem.Name = "butDem";
-            this.butDem.Size = new System.Drawing.Size(75, 23);
+            this.butDem.Size = new System.Drawing.Size(100, 28);
             this.butDem.TabIndex = 63;
             this.butDem.Text = "Demo";
             this.butDem.UseVisualStyleBackColor = true;
@@ -102,9 +115,10 @@ namespace VisV3
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(403, 23);
+            this.label12.Location = new System.Drawing.Point(537, 28);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(107, 20);
+            this.label12.Size = new System.Drawing.Size(128, 25);
             this.label12.TabIndex = 47;
             this.label12.Text = "Data Receiv";
             // 
@@ -112,6 +126,11 @@ namespace VisV3
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.tb_TargetCTs);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.tb_TargetCTm);
             this.panel2.Controls.Add(this.Req);
             this.panel2.Controls.Add(this.TB_ReqInd);
             this.panel2.Controls.Add(this.label12);
@@ -128,69 +147,78 @@ namespace VisV3
             this.panel2.Controls.Add(this.ser_DataLogTB);
             this.panel2.Controls.Add(this.ser_IPaddressTB);
             this.panel2.Controls.Add(this.ser_StartBT);
-            this.panel2.Location = new System.Drawing.Point(238, 30);
+            this.panel2.Location = new System.Drawing.Point(317, 37);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(677, 462);
+            this.panel2.Size = new System.Drawing.Size(901, 568);
             this.panel2.TabIndex = 62;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(123, 23);
+            this.label4.Location = new System.Drawing.Point(164, 28);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 13);
+            this.label4.Size = new System.Drawing.Size(33, 17);
             this.label4.TabIndex = 32;
             this.label4.Text = "port";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 24);
+            this.label3.Location = new System.Drawing.Point(24, 30);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.Size = new System.Drawing.Size(67, 17);
             this.label3.TabIndex = 31;
             this.label3.Text = "IP adress";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(389, 86);
+            this.label2.Location = new System.Drawing.Point(519, 106);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 30;
             this.label2.Text = "NumTask";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(404, 50);
+            this.label1.Location = new System.Drawing.Point(539, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(125, 17);
             this.label1.TabIndex = 29;
             this.label1.Text = "DataReceivLenght";
             // 
             // DataReceivLenght
             // 
-            this.DataReceivLenght.Location = new System.Drawing.Point(507, 47);
+            this.DataReceivLenght.Location = new System.Drawing.Point(676, 58);
+            this.DataReceivLenght.Margin = new System.Windows.Forms.Padding(4);
             this.DataReceivLenght.Name = "DataReceivLenght";
             this.DataReceivLenght.ReadOnly = true;
             this.DataReceivLenght.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.DataReceivLenght.Size = new System.Drawing.Size(43, 20);
+            this.DataReceivLenght.Size = new System.Drawing.Size(56, 22);
             this.DataReceivLenght.TabIndex = 28;
             // 
             // TB_Ntask
             // 
-            this.TB_Ntask.Location = new System.Drawing.Point(459, 83);
+            this.TB_Ntask.Location = new System.Drawing.Point(612, 102);
+            this.TB_Ntask.Margin = new System.Windows.Forms.Padding(4);
             this.TB_Ntask.Name = "TB_Ntask";
-            this.TB_Ntask.Size = new System.Drawing.Size(38, 20);
+            this.TB_Ntask.ReadOnly = true;
+            this.TB_Ntask.Size = new System.Drawing.Size(49, 22);
             this.TB_Ntask.TabIndex = 27;
             this.TB_Ntask.Text = "0";
             // 
             // ser_StopBT
             // 
-            this.ser_StopBT.Location = new System.Drawing.Point(280, 36);
+            this.ser_StopBT.Location = new System.Drawing.Point(373, 44);
+            this.ser_StopBT.Margin = new System.Windows.Forms.Padding(4);
             this.ser_StopBT.Name = "ser_StopBT";
-            this.ser_StopBT.Size = new System.Drawing.Size(75, 26);
+            this.ser_StopBT.Size = new System.Drawing.Size(100, 32);
             this.ser_StopBT.TabIndex = 26;
             this.ser_StopBT.Text = "Stop";
             this.ser_StopBT.UseVisualStyleBackColor = true;
@@ -198,34 +226,40 @@ namespace VisV3
             // 
             // ser_portTB
             // 
-            this.ser_portTB.Location = new System.Drawing.Point(123, 42);
+            this.ser_portTB.Location = new System.Drawing.Point(164, 52);
+            this.ser_portTB.Margin = new System.Windows.Forms.Padding(4);
+            this.ser_portTB.MaxLength = 4;
             this.ser_portTB.Name = "ser_portTB";
-            this.ser_portTB.Size = new System.Drawing.Size(65, 20);
+            this.ser_portTB.Size = new System.Drawing.Size(85, 22);
             this.ser_portTB.TabIndex = 24;
             this.ser_portTB.Text = "8989";
             // 
             // ser_DataLogTB
             // 
-            this.ser_DataLogTB.Location = new System.Drawing.Point(18, 83);
+            this.ser_DataLogTB.Location = new System.Drawing.Point(24, 102);
+            this.ser_DataLogTB.Margin = new System.Windows.Forms.Padding(4);
             this.ser_DataLogTB.Multiline = true;
             this.ser_DataLogTB.Name = "ser_DataLogTB";
             this.ser_DataLogTB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ser_DataLogTB.Size = new System.Drawing.Size(338, 353);
+            this.ser_DataLogTB.Size = new System.Drawing.Size(449, 434);
             this.ser_DataLogTB.TabIndex = 25;
             // 
             // ser_IPaddressTB
             // 
-            this.ser_IPaddressTB.Location = new System.Drawing.Point(17, 43);
+            this.ser_IPaddressTB.Location = new System.Drawing.Point(23, 53);
+            this.ser_IPaddressTB.Margin = new System.Windows.Forms.Padding(4);
+            this.ser_IPaddressTB.MaxLength = 15;
             this.ser_IPaddressTB.Name = "ser_IPaddressTB";
-            this.ser_IPaddressTB.Size = new System.Drawing.Size(100, 20);
+            this.ser_IPaddressTB.Size = new System.Drawing.Size(132, 22);
             this.ser_IPaddressTB.TabIndex = 23;
             this.ser_IPaddressTB.Text = "192.168.31.227";
             // 
             // ser_StartBT
             // 
-            this.ser_StartBT.Location = new System.Drawing.Point(195, 37);
+            this.ser_StartBT.Location = new System.Drawing.Point(260, 46);
+            this.ser_StartBT.Margin = new System.Windows.Forms.Padding(4);
             this.ser_StartBT.Name = "ser_StartBT";
-            this.ser_StartBT.Size = new System.Drawing.Size(75, 26);
+            this.ser_StartBT.Size = new System.Drawing.Size(100, 32);
             this.ser_StartBT.TabIndex = 22;
             this.ser_StartBT.Text = "Start";
             this.ser_StartBT.UseVisualStyleBackColor = true;
@@ -233,9 +267,10 @@ namespace VisV3
             // 
             // butSave
             // 
-            this.butSave.Location = new System.Drawing.Point(723, 1);
+            this.butSave.Location = new System.Drawing.Point(964, 1);
+            this.butSave.Margin = new System.Windows.Forms.Padding(4);
             this.butSave.Name = "butSave";
-            this.butSave.Size = new System.Drawing.Size(75, 23);
+            this.butSave.Size = new System.Drawing.Size(100, 28);
             this.butSave.TabIndex = 39;
             this.butSave.Text = "Save";
             this.butSave.UseVisualStyleBackColor = true;
@@ -243,9 +278,10 @@ namespace VisV3
             // 
             // BtSetengs
             // 
-            this.BtSetengs.Location = new System.Drawing.Point(840, 1);
+            this.BtSetengs.Location = new System.Drawing.Point(1120, 1);
+            this.BtSetengs.Margin = new System.Windows.Forms.Padding(4);
             this.BtSetengs.Name = "BtSetengs";
-            this.BtSetengs.Size = new System.Drawing.Size(75, 23);
+            this.BtSetengs.Size = new System.Drawing.Size(100, 28);
             this.BtSetengs.TabIndex = 61;
             this.BtSetengs.Text = "Setings";
             this.BtSetengs.UseVisualStyleBackColor = true;
@@ -253,9 +289,10 @@ namespace VisV3
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(1, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(1, 38);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(910, 699);
+            this.pictureBox1.Size = new System.Drawing.Size(1213, 860);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
@@ -263,7 +300,8 @@ namespace VisV3
             // TaskIndex
             // 
             this.TaskIndex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TaskIndex.Location = new System.Drawing.Point(86, 0);
+            this.TaskIndex.Location = new System.Drawing.Point(115, 0);
+            this.TaskIndex.Margin = new System.Windows.Forms.Padding(4);
             this.TaskIndex.Maximum = new decimal(new int[] {
             70,
             0,
@@ -275,7 +313,7 @@ namespace VisV3
             0,
             0});
             this.TaskIndex.Name = "TaskIndex";
-            this.TaskIndex.Size = new System.Drawing.Size(50, 26);
+            this.TaskIndex.Size = new System.Drawing.Size(67, 31);
             this.TaskIndex.TabIndex = 70;
             this.TaskIndex.Value = new decimal(new int[] {
             1,
@@ -287,40 +325,115 @@ namespace VisV3
             // tb_QPS
             // 
             this.tb_QPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_QPS.Location = new System.Drawing.Point(914, 31);
+            this.tb_QPS.Location = new System.Drawing.Point(1219, 38);
+            this.tb_QPS.Margin = new System.Windows.Forms.Padding(4);
             this.tb_QPS.Multiline = true;
             this.tb_QPS.Name = "tb_QPS";
-            this.tb_QPS.Size = new System.Drawing.Size(450, 700);
+            this.tb_QPS.Size = new System.Drawing.Size(599, 861);
             this.tb_QPS.TabIndex = 71;
             this.tb_QPS.TextChanged += new System.EventHandler(this.tb_QPS_TextChanged);
             // 
             // pb_CycleTime
             // 
-            this.pb_CycleTime.Location = new System.Drawing.Point(167, 2);
+            this.pb_CycleTime.Location = new System.Drawing.Point(223, 2);
+            this.pb_CycleTime.Margin = new System.Windows.Forms.Padding(4);
             this.pb_CycleTime.Name = "pb_CycleTime";
-            this.pb_CycleTime.Size = new System.Drawing.Size(205, 23);
+            this.pb_CycleTime.Size = new System.Drawing.Size(273, 28);
             this.pb_CycleTime.Step = 1;
             this.pb_CycleTime.TabIndex = 72;
             // 
             // tb_CycleTime
             // 
-            this.tb_CycleTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tb_CycleTime.BackColor = System.Drawing.SystemColors.Control;
-            this.tb_CycleTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_CycleTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_CycleTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_CycleTime.Location = new System.Drawing.Point(379, 5);
+            this.tb_CycleTime.Location = new System.Drawing.Point(503, 3);
+            this.tb_CycleTime.Margin = new System.Windows.Forms.Padding(4);
             this.tb_CycleTime.Name = "tb_CycleTime";
-            this.tb_CycleTime.ReadOnly = true;
-            this.tb_CycleTime.Size = new System.Drawing.Size(62, 19);
+            this.tb_CycleTime.Size = new System.Drawing.Size(83, 30);
             this.tb_CycleTime.TabIndex = 73;
             this.tb_CycleTime.Text = "00:00";
+            this.tb_CycleTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_CycleTime.WordWrap = false;
+            // 
+            // pb_operator
+            // 
+            this.pb_operator.BackColor = System.Drawing.SystemColors.Control;
+            this.pb_operator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pb_operator.Image = global::VisV3.Properties.Resources.download;
+            this.pb_operator.Location = new System.Drawing.Point(674, 0);
+            this.pb_operator.Name = "pb_operator";
+            this.pb_operator.Size = new System.Drawing.Size(35, 36);
+            this.pb_operator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_operator.TabIndex = 74;
+            this.pb_operator.TabStop = false;
+            // 
+            // tb_Operator
+            // 
+            this.tb_Operator.BackColor = System.Drawing.SystemColors.Control;
+            this.tb_Operator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_Operator.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Operator.Location = new System.Drawing.Point(714, 4);
+            this.tb_Operator.Name = "tb_Operator";
+            this.tb_Operator.Size = new System.Drawing.Size(42, 30);
+            this.tb_Operator.TabIndex = 75;
+            this.tb_Operator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Operator.WordWrap = false;
+            // 
+            // tb_TargetCTm
+            // 
+            this.tb_TargetCTm.Location = new System.Drawing.Point(801, 21);
+            this.tb_TargetCTm.MaxLength = 3;
+            this.tb_TargetCTm.Name = "tb_TargetCTm";
+            this.tb_TargetCTm.Size = new System.Drawing.Size(41, 22);
+            this.tb_TargetCTm.TabIndex = 76;
+            this.tb_TargetCTm.Text = "0";
+            this.tb_TargetCTm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(777, 1);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 17);
+            this.label5.TabIndex = 77;
+            this.label5.Text = "Target cycle time";
+            // 
+            // tb_TargetCTs
+            // 
+            this.tb_TargetCTs.Location = new System.Drawing.Point(839, 21);
+            this.tb_TargetCTs.MaxLength = 2;
+            this.tb_TargetCTs.Name = "tb_TargetCTs";
+            this.tb_TargetCTs.Size = new System.Drawing.Size(32, 22);
+            this.tb_TargetCTs.TabIndex = 78;
+            this.tb_TargetCTs.Text = "0";
+            this.tb_TargetCTs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(813, 44);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 17);
+            this.label6.TabIndex = 79;
+            this.label6.Text = "m";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(848, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(15, 17);
+            this.label7.TabIndex = 80;
+            this.label7.Text = "s";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.ClientSize = new System.Drawing.Size(1344, 898);
+            this.Controls.Add(this.tb_Operator);
+            this.Controls.Add(this.pb_operator);
             this.Controls.Add(this.tb_CycleTime);
             this.Controls.Add(this.pb_CycleTime);
             this.Controls.Add(this.tb_QPS);
@@ -329,6 +442,7 @@ namespace VisV3
             this.Controls.Add(this.butSave);
             this.Controls.Add(this.BtSetengs);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -336,6 +450,7 @@ namespace VisV3
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TaskIndex)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_operator)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,6 +483,13 @@ namespace VisV3
         private System.Windows.Forms.TextBox tb_QPS;
         private System.Windows.Forms.ProgressBar pb_CycleTime;
         private System.Windows.Forms.TextBox tb_CycleTime;
+        private System.Windows.Forms.PictureBox pb_operator;
+        private System.Windows.Forms.TextBox tb_Operator;
+        private System.Windows.Forms.TextBox tb_TargetCTs;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tb_TargetCTm;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
 
